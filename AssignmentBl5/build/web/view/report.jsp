@@ -13,19 +13,44 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
+    <style>
+        .left{
+            float: left;
+            margin-bottom: 20px;
+        }
+        .right{
+            float: right;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid;
+            text-align: center;
+        }
+        h1{
+            font: 25px;
+            text-align: center;
+        }
+
+    </style>
     <body>
-        <table border="5px">
+        <header>
+        <h1>Bảng chấm công tháng 8/2022</h1>
+        <div class="left">
+            <button>Bảng tính lương</button>
+        </div>
+        </header>
+        <table border="2px" style="width:100%">
             <tr>
                 <td></td>
                 <c:forEach items="${requestScope.dates}" var="d" >
-                    <td 
-                        <c:if test="${d.dow eq 1 or d.dow eq 7}">
+                    <td> 
+                        <!--<c:if test="${d.dow eq 1 or d.dow eq 7}">
                             style="background-color: yellow" 
                         </c:if>
                         <c:if test="${d.dow ne 1 and d.dow ne 7}">
                             style="background-color: bisque" 
-                        </c:if>
-                        >
+                        </c:if>-->
+                        
                         <fmt:formatDate pattern = "dd" 
                                         value = "${d.value}" /> <br/>
                         <fmt:formatDate pattern = "EE"
@@ -39,11 +64,11 @@
                 <tr>
                     <td>${e.name}</td>
                     <c:forEach items="${requestScope.dates}" var="d">
-                        <td 
-                            <c:if test="${d.dow eq 1 or d.dow eq 7}">
+                        <td> 
+                            <!--<c:if test="${d.dow eq 1 or d.dow eq 7}">
                                 style="background-color: yellow" 
-                            </c:if>
-                            >
+                            </c:if>-->
+                            
                             <c:forEach items="${e.timesheets}" var="t">
                                 <c:if test="${d.value eq t.cidate}">
                                     ${t.getWorkingHours()}

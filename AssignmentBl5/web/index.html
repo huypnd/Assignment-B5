@@ -24,39 +24,38 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         }
         h1{
             font: 25px;
-            color: blue;
             text-align: center;
         }
 
     </style>
     <body>
         <header>
-            <h1> Lương tháng 8/2022</h1>
+            <h1>Bảng lương tháng 8/2022</h1>
             <div class="left">
-                <input type="date" name="date" value="">
+                <!--<input type="date" name="date" value="">-->
                 <input type="text" name="name" value="" placeholder="Search by name">
                 <input type="submit" value="Search">
-            </div>
-            <div class="right">
+            </div> 
+            <div class="left">
                 <button>Bảng chấm công</button>
             </div>
         </header>
         <div class="main">
-            <table style="width:100%" >
+            <table border="2px" style="width:100%" >
                 <tr>
                     <th rowspan="2">Họ tên</th>
-                    <td rowspan="2">Chức vụ</td>
-                    <td colspan="3">Công</td>
+
+                    <td colspan="3">Tổng công</td>
                     <td colspan="3">Ngày nghỉ</td>
-                    <td rowspan="2">Tổng công</td>
-                    <td rowspan="2">Lương</td>
+                    <td rowspan="2">Tổng</td>
+                    <td rowspan="2">Tổng Lương</td>
                 </tr>
                 <tr>
-                    <th>Thường</th>
-                    <td>Cuối tuần</td>
+                    <th>Ngày thường</th>
+                    <td>Ngày cuối tuần</td>
                     <td>Ngày lễ</td>
                     <th>Nghỉ không lương</th>
-                    <td>Phép có lương</td>
+                    <td>Nghỉ có lương</td>
                     <td>Nghỉ lễ</td>
                 </tr>
                 <tr>
@@ -69,9 +68,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td></td>
+
                 </tr>
             </table>
         </div>
+
     </body>
 </html>
