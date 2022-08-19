@@ -9,7 +9,60 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
+    <style>
+        .left{
+            float: left;
+            margin-bottom: 20px;
+        }
+        .right{
+            float: right;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid;
+            text-align: center;
+        }
+        h1{
+            font: 25px;
+            color: blue;
+            text-align: center;
+        }
+
+    </style>
     <body>
-        <div>TODO write content</div>
+        <header>
+            <h1> Lương tháng 8/2022</h1>
+            <div class="left">
+                <input type="date" name="date" value="">
+                <input type="text" name="name" value="" placeholder="Search by name">
+                <input type="submit" value="Search">
+            </div>
+            <div class="right">
+                <button>Bảng chấm công</button>
+            </div>
+        </header>
+        <div class="main">
+            <table style="width:100%" >
+                <tr>
+                    <th rowspan="2">Họ tên</th>
+                    <td rowspan="2">Chức vụ</td>
+                    <td colspan="3">Công</td>
+                    <td colspan="3">Ngày nghỉ</td>
+                    <td rowspan="2">Tổng công</td>
+                    <td rowspan="2">Lương</td>
+                </tr>
+                <tr>
+                    <th>Thường</th>
+                    <td>Cuối tuần</td>
+                    <td>Ngày lễ</td>
+                    <th>N không luong</th>
+                    <td>Phép có lương</td>
+                    <td>Nghỉ lễ</td>
+                </tr>
+                <tr>
+                    <td>555-8745</td>
+                </tr>
+            </table>
+        </div>
     </body>
 </html>
