@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import model.ViewDate;
+import model.Office;
 
 /**
  *
@@ -70,14 +70,14 @@ public class DateTimeHelper {
         return new Timestamp(data.getTime());
     }
     
-    public static ArrayList<ViewDate> getDates(Date from, Date to)
+    public static ArrayList<Office> getDates(Date from, Date to)
     {
-        ArrayList<ViewDate> dates = new ArrayList<>();
+        ArrayList<Office> dates = new ArrayList<>();
         int day =0;
         while(true)
         {
             Date d = addDays(from, day);
-            ViewDate item = new ViewDate();
+            Office item = new Office();
             item.setValue(d);
             day++;
             dates.add(item);

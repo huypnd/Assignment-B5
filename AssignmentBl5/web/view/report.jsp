@@ -34,7 +34,7 @@
     </style>
     <body>
         <header>
-        <h1>Bảng chấm công tháng 8/2022</h1>
+        <h1>Giờ làm theo ngày của nhân viên</h1>
         <div class="left">
             <button>Bảng tính lương</button>
         </div>
@@ -57,8 +57,9 @@
                                         value = "${d.value}" />
                     </td>
                 </c:forEach>
-                    <td>Hours</td>
-                    <td>Days</td>
+                    <td>Số giờ làm</td>
+                    <td>Số ngày làm</td>
+                    <td>Số ngày nghỉ</td>
             </tr>
             <c:forEach items="${requestScope.emps}" var="e">
                 <tr>
@@ -69,15 +70,16 @@
                                 style="background-color: yellow" 
                             </c:if>-->
                             
-                            <c:forEach items="${e.timesheets}" var="t">
+                            <!--<c:forEach items="${e.timesheets}" var="t">
                                 <c:if test="${d.value eq t.cidate}">
                                     ${t.getWorkingHours()}
                                 </c:if>
-                            </c:forEach>
+                            </c:forEach>-->
                         </td>
                     </c:forEach>
-                    <td>${e.getWorkingHours()}</td>
-                    <td>${e.getWorkingDays()}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
             </c:forEach>
         </table>

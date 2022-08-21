@@ -4,63 +4,53 @@
  */
 package model;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author 84339
  */
 public class Employee {
-    private int id;
-    private String name;
-    private float salary;
-    private ArrayList<TimeSheet> timesheets = new ArrayList<>();
+    private  int eid;
+    private String ename;
+    private int idOffice;
 
-    public float getSalary() {
-        return salary;
+    public Employee() {
     }
 
-    public void setSalary(float salary) {
-        this.salary = salary;
-    }
-    
-    public float getWorkingHours()
-    {
-        float sum = 0;
-        for (TimeSheet timesheet : timesheets) {
-            sum += timesheet.getWorkingHours();
-        }
-        return sum;
-    }
-    
-    public int getWorkingDays()
-    {
-        return timesheets.size();
-    }
-    
-    public int getId() {
-        return id;
+    public Employee(int eid, String ename, int idOffice) {
+        this.eid = eid;
+        this.ename = ename;
+        this.idOffice = idOffice;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getEid() {
+        return eid;
     }
 
-    public String getName() {
-        return name;
+    public void setEid(int eid) {
+        this.eid = eid;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getEname() {
+        return ename;
     }
 
-    public ArrayList<TimeSheet> getTimesheets() {
-        return timesheets;
+    public void setEname(String ename) {
+        this.ename = ename;
     }
 
-    public void setTimesheets(ArrayList<TimeSheet> timesheets) {
-        this.timesheets = timesheets;
+    public int getIdOffice() {
+        return idOffice;
+    }
+
+    public void setIdOffice(int idOffice) {
+        this.idOffice = idOffice;
+    }
+
+    @Override
+    public String toString() {
+        return  "eid=" + eid + ", ename=" + ename + ", idOffice=" + idOffice ;
     }
     
     
 }
+

@@ -13,16 +13,22 @@ import java.util.Date;
  */
 public class TimeSheet {
     private int tid;
-    private Employee employee;
-    private Date checkin;
-    private Date checkout;
-    private Date cidate;
-    
-    public float getWorkingHours()
-    {
-        return DateTimeHelper.diffHours(checkout, checkin);
+    private int eid;
+    private String checkin;
+    private String checkout;
+    private int coef;
+
+    public TimeSheet() {
     }
-    
+
+    public TimeSheet(int tid, int eid, String checkin, String checkout, int coef) {
+        this.tid = tid;
+        this.eid = eid;
+        this.checkin = checkin;
+        this.checkout = checkout;
+        this.coef = coef;
+    }
+
     public int getTid() {
         return tid;
     }
@@ -31,31 +37,41 @@ public class TimeSheet {
         this.tid = tid;
     }
 
-    public Employee getEmployee() {
-        return employee;
+    public int getEid() {
+        return eid;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setEid(int eid) {
+        this.eid = eid;
     }
 
-    public Date getCheckin() {
+    public String getCheckin() {
         return checkin;
     }
 
-    public void setCheckin(Date checkin) {
+    public void setCheckin(String checkin) {
         this.checkin = checkin;
     }
 
-    public Date getCheckout() {
+    public String getCheckout() {
         return checkout;
     }
 
-    public void setCheckout(Date checkout) {
+    public void setCheckout(String checkout) {
         this.checkout = checkout;
     }
 
-    public Date getCidate() {
-        return DateTimeHelper.removeTime(checkin);
-    }  
+    public int getCoef() {
+        return coef;
+    }
+
+    public void setCoef(int coef) {
+        this.coef = coef;
+    }
+
+    @Override
+    public String toString() {
+        return "TimeSheet{" + "tid=" + tid + ", eid=" + eid + ", checkin=" + checkin + ", checkout=" + checkout + ", coef=" + coef + '}';
+    }
+    
 }
