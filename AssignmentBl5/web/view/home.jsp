@@ -1,8 +1,4 @@
-<%-- 
-    Document   : home
-    Created on : Aug 23, 2022, 12:06:21 AM
-    Author     : 84339
---%>
+
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -74,7 +70,7 @@
                 <tr>
                     <td>${o.nameEmployee}</td>
                     <td>${o.nameOffice}</td>
-                    <td>${o.totalNT}</td><!-- comment -->
+                    <td>${o.totalNT}</td>
                     <td>${o.totalCT}</td>
                     <td>${o.totalNl}</td>
                     <td>${o.totalKL}</td>

@@ -37,16 +37,16 @@ public class TimesheetDBContext extends DBContext {
                 + "+count(CASE WHEN coef = 3 THEN t.tid END)*3*s.salary) as sumsalary                                          "
                 + "from Employee e join Office o                                                                               "
                 + "on e.idOffice = o.id                                                                                        "
-                + "join TimeSheet t on t.eid = e.eid                                                                           "
-                + "join Offtime ot on ot.eid = e.eid                                                                           "
-                + "join Salary s on s.eid = e.eid                                                                              "
+                + " left join TimeSheet t on t.eid = e.eid                                                                           "
+                + "left join Offtime ot on ot.eid = e.eid                                                                           "
+                + "left join Salary s on s.eid = e.eid                                                                              "
                 + "group by e.eid,o.name,e.ename,s.salary),                                                                    "
                 + "s as (select eid,(case when osid = 1 then DATEDIFF(day,fromDate,toDate)+1 end) as totalKL,                  "
                 + "isnull((case when osid = 2 then DATEDIFF(day,fromDate,toDate)+1 end),0) as totalCL,                         "
                 + "isnull((case when osid = 3 then DATEDIFF(day,fromDate,toDate)+1 end),0) as totalNL                          "
                 + "from Offtime )                                                                                              "
                 + "select r.ename,r.name,r.totalT,r.totalCT,r.totalL,s.totalKL,s.totalCL,s.totalNL,r.sumsalary from r as r     "
-                + "join s as s on r.eid = s.eid                                                                                 ";
+                + "left join s as s on r.eid = s.eid                                                                                 ";
         PreparedStatement stm = connection.prepareStatement(sql);
         ResultSet rs = stm.executeQuery();
         while (rs.next()) {
@@ -69,16 +69,16 @@ public class TimesheetDBContext extends DBContext {
                 + "+count(CASE WHEN coef = 3 THEN t.tid END)*3*s.salary) as sumsalary                                          "
                 + "from Employee e join Office o                                                                               "
                 + "on e.idOffice = o.id                                                                                        "
-                + "join TimeSheet t on t.eid = e.eid                                                                           "
-                + "join Offtime ot on ot.eid = e.eid                                                                           "
-                + "join Salary s on s.eid = e.eid                                                                              "
+                + "left join TimeSheet t on t.eid = e.eid                                                                           "
+                + "left join Offtime ot on ot.eid = e.eid                                                                           "
+                + "left join Salary s on s.eid = e.eid                                                                              "
                 + "group by e.eid,o.name,e.ename,s.salary),                                                                    "
                 + "s as (select eid,(case when osid = 1 then DATEDIFF(day,fromDate,toDate)+1 end) as totalKL,                  "
                 + "isnull((case when osid = 2 then DATEDIFF(day,fromDate,toDate)+1 end),0) as totalCL,                         "
                 + "isnull((case when osid = 3 then DATEDIFF(day,fromDate,toDate)+1 end),0) as totalNL                          "
                 + "from Offtime )                                                                                              "
                 + "select r.ename,r.name,r.totalT,r.totalCT,r.totalL,s.totalKL,s.totalCL,s.totalNL,r.sumsalary from r as r     "
-                + "join s as s on r.eid = s.eid where r.ename like '%" + name + "%' ";
+                + "left join s as s on r.eid = s.eid where r.ename like '%" + name + "%' ";
         PreparedStatement stm = connection.prepareStatement(sql);
 
         ResultSet rs = stm.executeQuery();
