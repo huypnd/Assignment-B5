@@ -4,53 +4,89 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author 84339
  */
 public class Employee {
-    private  int eid;
-    private String ename;
-    private int idOffice;
+   private int id;
+    private String name;
+    private float salary;
+    private int paidleave;
+    private int unpaidleave;
+    private int holiday;
+    private ArrayList<TimeSheet> timesheets = new ArrayList<>();
 
-    public Employee() {
+    public float getSalary() {
+        return salary;
     }
 
-    public Employee(int eid, String ename, int idOffice) {
-        this.eid = eid;
-        this.ename = ename;
-        this.idOffice = idOffice;
+    public void setSalary(float salary) {
+        this.salary = salary;
     }
 
-    public int getEid() {
-        return eid;
+    public float getWorkingHours() {
+        float sum = 0;
+        for (TimeSheet timesheet : timesheets) {
+            sum += timesheet.getWorkingHours();
+        }
+        return sum;
     }
 
-    public void setEid(int eid) {
-        this.eid = eid;
+    public int getWorkingDays() {
+        return timesheets.size();
     }
 
-    public String getEname() {
-        return ename;
+    public int getId() {
+        return id;
     }
 
-    public void setEname(String ename) {
-        this.ename = ename;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public int getIdOffice() {
-        return idOffice;
+    public String getName() {
+        return name;
     }
 
-    public void setIdOffice(int idOffice) {
-        this.idOffice = idOffice;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return  "eid=" + eid + ", ename=" + ename + ", idOffice=" + idOffice ;
+    public ArrayList<TimeSheet> getTimesheets() {
+        return timesheets;
     }
-    
+
+    public void setTimesheets(ArrayList<TimeSheet> timesheets) {
+        this.timesheets = timesheets;
+    }
+
+    public int getPaidleave() {
+        return paidleave;
+    }
+
+    public void setPaidleave(int paidleave) {
+        this.paidleave = paidleave;
+    }
+
+    public int getUnpaidleave() {
+        return unpaidleave;
+    }
+
+    public void setUnpaidleave(int unpaidleave) {
+        this.unpaidleave = unpaidleave;
+    }
+
+    public int getHoliday() {
+        return holiday;
+    }
+
+    public void setHoliday(int holiday) {
+        this.holiday = holiday;
+    }
+
     
 }
 

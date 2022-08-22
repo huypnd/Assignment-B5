@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import model.Office;
+import model.ViewDate;
 
 /**
  *
@@ -70,14 +71,14 @@ public class DateTimeHelper {
         return new Timestamp(data.getTime());
     }
     
-    public static ArrayList<Office> getDates(Date from, Date to)
+    public static ArrayList<ViewDate> getDates(Date from, Date to)
     {
-        ArrayList<Office> dates = new ArrayList<>();
+        ArrayList<ViewDate> dates = new ArrayList<>();
         int day =0;
         while(true)
         {
             Date d = addDays(from, day);
-            Office item = new Office();
+            ViewDate item = new ViewDate();
             item.setValue(d);
             day++;
             dates.add(item);

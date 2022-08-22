@@ -5,7 +5,8 @@
 
 package controller;
 
-import dal.EmployeeDBContext;
+
+import dal.TimesheetDBContext;
 import helper.DateTimeHelper;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import model.Employee;
 import model.Office;
+import model.ViewDate;
 
 /**
  *
@@ -46,19 +48,19 @@ public class TimesheetReportController extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         Date today = new Date();
         today = DateTimeHelper.removeTime(today);
         int dayOfMonth = DateTimeHelper.getDayOfMonth(today);
         Date begin = DateTimeHelper.addDays(today, (dayOfMonth-1)*-1);
         Date end = DateTimeHelper.addDays(DateTimeHelper.addMonths(begin, 1),-1);
-        EmployeeDBContext db = new EmployeeDBContext();
+        TimesheetDBContext db = new TimesheetDBContext();
         ArrayList<Employee> emps = db.getEmps(begin, end);
-        ArrayList<Office> dates = DateTimeHelper.getDates(begin, end);
+        ArrayList<ViewDate> dates = DateTimeHelper.getDates(begin, end);
         request.setAttribute("emps", emps);
         request.setAttribute("dates", dates);
         request.getRequestDispatcher("view/report.jsp").forward(request, response);
-    } 
+    }
 
     /** 
      * Handles the HTTP <code>POST</code> method.
